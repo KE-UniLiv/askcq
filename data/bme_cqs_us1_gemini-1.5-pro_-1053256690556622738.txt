@@ -1,0 +1,22 @@
+* Can Sonia easily input detailed information about her items, including provenance, condition, historical significance, and multimedia content, using her preferred communication methods (e.g., email)?
+Can Sonia view and edit the information she has provided about her loaned items through the dashboard?
+Can Sonia easily upload and associate multimedia content (images, videos, audio) with her items?
+Can Liz easily review and validate the information submitted by Sonia?
+Can Liz add items to the knowledge base using the information provided by Sonia, minimizing manual data entry?
+Can Liz easily capture specific attributes related to different item types (e.g., brand and model for a guitar, designer for a costume)?
+Can the system automatically generate metadata based on the information provided by Sonia, reducing manual effort and ensuring consistency?
+Can Liz query the system to find items based on specific criteria (e.g., artist, time period, material)?
+Can Liz generate reports on the collection, including loan agreements, provenance information, and condition reports?
+Can Sonia track the status of her loan agreements through the dashboard?
+Can Sonia receive notifications about upcoming loan expirations or other important events related to her loaned items?
+Can Liz manage loan agreements within the system, including start and end dates, compensation details, insurance information, and transport arrangements?
+Can Liz track the location and movement of loaned items, including their current display status (e.g., on display, in storage, in transit)?
+Can Liz generate reports on current and past loans?
+Can Liz record specific display requirements for each item, such as lighting conditions, temperature and humidity control, and handling instructions?
+Can Liz access and manage condition reports for each item, including descriptions of damage, conservation history, and recommended preservation measures?
+Can Liz upload and annotate photographs of items to document their condition?
+Is the dashboard intuitive and easy for Sonia to use, even with limited technical expertise?
+Does Sonia have appropriate access permissions to view and manage information related to her loaned items, while preventing unauthorized access to other areas of the system?
+Is the system efficient and user-friendly for Liz to manage the museum's collection and loan agreements?
+Does Liz have the necessary administrative privileges to manage all aspects of the system, including user accounts, data entry, and report generation?
+

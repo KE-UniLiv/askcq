@@ -1,0 +1,42 @@
+1.  What are the different *types* of artifacts in the collection (e.g., Instrument, Stage Costume, Manuscript)?
+2.  What specific attributes are relevant for an *Instrument* (e.g., Brand, Model, Serial Number, Type: Acoustic-electric)?
+3.  What specific attributes are relevant for a *Stage Costume* (e.g., Designer, Description)?
+4.  What specific attributes are relevant for a *Manuscript* (e.g., Description, Medium: Handwritten)?
+5.  Which *Artist(s)* are associated with a specific artifact (e.g., Gibson J-160E -> John Lennon, George Harrison)?
+6.  Which *Work(s)* (e.g., album, song) are associated with a specific artifact (e.g., Gibson J-160E -> "Please Please Me" album; Handwritten Lyrics -> "Bohemian Rhapsody")?
+7.  Which *Event(s)* (e.g., tour, recording session) are associated with a specific artifact (e.g., Ziggy Stardust Jumpsuit -> Ziggy Stardust tour)?
+8.  What is the unique identifier (e.g., catalog number, serial number if applicable) for a given artifact?
+9.  How can we retrieve all artifacts associated with a specific *Artist* (e.g., David Bowie)?
+10. How can we retrieve all artifacts classified as a specific *Type* (e.g., Stage Costume)?
+11. Who was the *original owner* of a specific artifact (if known)?
+12. Who is the *current owner* of a specific artifact (e.g., Sonia)?
+13. How and when did the *current owner* (e.g., Sonia) acquire a specific artifact?
+14. Has a specific artifact been loaned out previously? To which *institutions* and during which *dates*?
+15. What is the complete ownership history (provenance trail) for a given artifact?
+16. What is the recorded *general condition* (e.g., Excellent, Fair, Good, Fragile, Delicate) of a specific artifact?
+17. What specific *damage* (e.g., scratches, fraying, fading, creasing, foxing) is noted for a particular artifact?
+18. What *conservation treatments* has a specific artifact undergone, and when?
+19. How can we find all artifacts currently assessed as being in *'Fragile'* or *'Delicate'* condition?
+20. What are the specific *display case requirements* for an artifact (e.g., Secure, Climate-controlled)?
+21. What are the *lighting requirements* for displaying an artifact (e.g., Low-level, UV-filtered, Indirect)?
+22. Are there specific *handling instructions* (e.g., White gloves required)?
+23. What level of *security* is required for a specific artifact (e.g., 24/7 monitoring, High-level, Alarms, CCTV)?
+24. Does an artifact require specific environmental controls (e.g., *humidity control*)?
+25. Does a costume require a *custom-fit mannequin*?
+26. Does a manuscript require specific *framing* (e.g., Acid-free matting, UV-filtering glass)?
+27. Who is the *donor/lender* (e.g., Sonia) for a specific loaned artifact?
+28. Who is the *borrower* (e.g., BME, V&A, Rock & Roll Hall of Fame) for a specific loan agreement?
+29. What is the *start date* and *end date* (or status like 'Indefinite', 'Full Donation') of a specific loan agreement?
+30. What is the agreed *compensation* (if any) for a specific loan?
+31. Who is responsible for *insurance* under a specific loan agreement?
+32. Who is responsible for arranging and covering the cost of *transport* for a specific loan?
+33. Is a specific artifact currently on *loan*? To whom?
+34. Which artifacts loaned by *Sonia* are currently held by the *BME*?
+35. Which loan agreements are set to *expire* within the next [time period, e.g., 6 months]?
+36. Has an artifact been designated as a *'Full Donation'* rather than a loan?
+37. What are all the artifacts currently under loan agreements with the *BME* as the borrower?
+38. How can the system represent the *relationship* between a donor (Sonia) and the artifacts they have loaned?
+39. How can the system represent the *status* of a loan (e.g., Proposed, Active, Expired, Donated)?
+40. What information about loaned artifacts should be visible to the *donor* (Sonia) via the dashboard? (e.g., Loan status, Location within museum, Current condition summary?)
+41. How does the system distinguish between artifacts owned outright by the museum and those on loan?
+42. How can Liz retrieve all information (cataloguing, provenance, condition, display, loan) associated with a single artifact added via the loan process?

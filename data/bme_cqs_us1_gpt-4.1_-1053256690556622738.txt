@@ -1,0 +1,26 @@
+**CQ1:** What items from Sonia’s collection are currently on loan to the British Music Experience (BME)?
+**CQ2:** What is the complete provenance history of a given item, including previous owners, acquisition dates, and prior loans to other institutions?
+**CQ3:** Which items in the museum’s collection are on temporary loan, and what are their respective loan start and end dates?
+**CQ4:** What is the current status of the loan agreement for a specific item (e.g., active, expired, indefinite, donated)?
+**CQ5:** Which institutions have previously borrowed a specific item, and during which periods?
+**CQ6:** What cataloguing information is available for a given item (e.g., type, brand, model, serial number, associated artists, associated works)?
+**CQ7:** What multimedia content (images, videos, audio recordings) is associated with a specific item, and how can it be accessed?
+**CQ8:** What is the historical and cultural significance of a given item, as described by the donor or curator?
+**CQ9:** What metadata fields are mandatory for each type of item (e.g., instrument, costume, manuscript), and which are optional or type-specific?
+**CQ10:** What is the current condition of a specific item, including any documented damage or conservation treatments?
+**CQ11:** Are there annotated photographs or reports highlighting specific areas of concern or interest on an item?
+**CQ12:** What is the conservation history of an item, including dates and types of treatments performed?
+**CQ13:** What are the display requirements for a specific item (e.g., case type, lighting, environmental controls)?
+**CQ14:** What handling and security instructions are associated with an item while on display or in storage?
+**CQ15:** Which items require special display equipment (e.g., custom mannequins, acid-free matting) or environmental conditions?
+**CQ16:** What items loaned by Sonia are currently visible to her via the dashboard, and what information can she access or update?
+**CQ17:** What is the communication history between Sonia and the museum regarding a specific item or loan agreement?
+**CQ18:** What changes or updates have been made to the metadata or status of a loaned item, and by whom?
+**CQ19:** In which exhibitions or display cases has a specific item been featured, and during what time periods?
+**CQ20:** What is the current physical location of a specific item (e.g., on display, in storage, in transit)?
+**CQ21:** What is the audit trail of an item’s movement between museums, exhibitions, and storage locations?
+**CQ22:** What are the terms of the loan agreement for a specific item (e.g., compensation, insurance, transport arrangements)?
+**CQ23:** Who is responsible for insurance and transport of a loaned item, and what are the coverage details?
+**CQ24:** What compensation or benefits (e.g., tax deduction, annual fee) are associated with a specific loan or donation?
+**CQ25:** How does the addition of a new item from Sonia’s collection enrich the museum’s knowledge base (e.g., new artists, works, or historical periods represented)?
+**CQ26:** What gaps or overlaps exist in the museum’s collection after integrating Sonia’s loaned items?
