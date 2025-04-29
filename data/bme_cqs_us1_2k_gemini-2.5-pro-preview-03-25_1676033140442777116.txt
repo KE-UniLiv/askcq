@@ -1,0 +1,22 @@
+**CQ1:** What items has Sonia loaned to the British Music Experience, and what are the terms and status of each loan agreement?
+ **CQ2:** What is the complete provenance history of a given item, including previous owners, acquisition dates, and prior loans to other institutions?
+ **CQ3:** Which items in the collection are currently on loan, and to which institutions are they loaned?
+ **CQ4:** What is the current location and status (e.g., on display, in storage, in transit) of a specific item?
+ **CQ5:** What is the audit trail of movements and exhibitions for a particular item?
+ **CQ6:** What are the cataloguing details (type, brand, model, serial number, associated artists, associated works) for a specific item?
+ **CQ7:** What multimedia content (images, videos, audio recordings) is associated with a particular item?
+ **CQ8:** What metadata has been generated for each item, and who contributed or verified this information?
+ **CQ9:** What is the current condition of an item, including any reported damage and conservation history?
+ **CQ10:** What condition reports (including photographs and annotations) exist for a given item, and when were they last updated?
+ **CQ11:** What conservation treatments have been performed on an item, and by whom?
+ **CQ12:** What are the display requirements (case type, lighting, environmental controls, security measures) for a specific item?
+ **CQ13:** What handling instructions or restrictions are associated with an item (e.g., gloves required, restricted access)?
+ **CQ14:** What items does Sonia have access to view or manage in the system, and what actions is she permitted to perform?
+ **CQ15:** Which users (e.g., donors, curators) have contributed information or updates to a specific item’s record?
+ **CQ16:** What is the historical and cultural significance of an item, and how is this information linked to broader narratives or exhibitions?
+ **CQ17:** How is an item connected to artists, events, or movements in British popular music history?
+ **CQ18:** What interpretive materials or exhibition captions are associated with an item?
+ **CQ19:** What are the insurance, compensation, and transport arrangements specified in the loan agreement for a particular item?
+ **CQ20:** What are the start and end dates of a loan, and are there any special terms (e.g., indefinite loan, full donation)?
+ **CQ21:** What is the current status of all items loaned by Sonia, including pending, active, and completed loans?
+ **CQ22:** What notifications or updates have been sent to Sonia regarding her loaned items?
