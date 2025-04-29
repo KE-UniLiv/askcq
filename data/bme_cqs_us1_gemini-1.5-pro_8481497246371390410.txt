@@ -1,0 +1,22 @@
+Can the system accurately capture and represent the diverse types of metadata associated with music memorabilia, including cataloging information, provenance, condition, display requirements, and loan agreements?
+Can Sonia easily input rich textual descriptions, upload multimedia content (images, videos, audio), and link related items within the system?
+Can the system distinguish between different object types (e.g., instruments, costumes, manuscripts) and capture type-specific attributes (e.g., brand/model for instruments, designer for costumes)?
+How does the system handle and preserve the context and narrative provided by Sonia regarding the historical significance of each item?
+Can the system represent complex provenance information, including multiple previous owners, acquisition methods, and loan history?
+Does the system support controlled vocabularies or ontologies for consistent metadata entry and improved searchability (e.g., for materials, artists, genres)?
+How does the system streamline the loan process, minimizing manual effort and paperwork for both Sonia and Liz?
+How does Sonia initiate a loan request and share item information with the BME through her preferred communication channels?
+Can Liz easily review and approve/reject loan requests within the system?
+How does the system facilitate communication and collaboration between Sonia and Liz throughout the loan process?
+What level of access does Sonia have to the dashboard, and how does this empower her to maintain oversight of her loaned items?
+Can the system generate loan agreements automatically based on the captured information?
+How does the system handle changes or updates to item information after the initial loan request?
+How does the system support detailed condition reporting, including the ability to upload photographs, annotate specific areas of an item, and document conservation history?
+Can the system track the condition of items over time and alert Liz to any changes or potential issues?
+How does the system ensure that display requirements and care instructions are communicated clearly to museum staff and adhered to?
+How does the captured metadata integrate with the museum's existing knowledge base and collections management system?
+Does the system automatically generate metadata in a format compatible with the museum's systems?
+How does the system handle potential inconsistencies or conflicts between Sonia's provided information and existing museum records?
+Can the system generate reports and visualizations based on the captured data, such as loan summaries, collection statistics, or exhibition planning tools?
+**For Sonia:** How easy is it for Sonia, a non-technical user, to navigate the system and contribute her knowledge effectively?  Does the system respect her desire for transparency and control over her loaned items?
+**For Liz:** How does the system support Liz's curatorial responsibilities, including collection management, exhibition planning, and reporting? Does the system help Liz make informed decisions about accepting loan requests based on the museum's collection strategy and available resources?
