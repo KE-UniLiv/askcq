@@ -30,7 +30,10 @@ except OSError:
     print(f"Please download it: python -m spacy download {SPACY_MODEL_NAME}")
     exit() # Or handle gracefully depending on application context
 
-# -------------------------------------
+
+# -------------------------------------------------
+# --- Ontology Primitives Extraction Model --------
+# -------------------------------------------------
 
 class CQAnalysis(BaseModel):
     """
@@ -66,31 +69,22 @@ class CQAnalysis(BaseModel):
         # default=""
     )
 
-# -------------------------------------
-# 2. LLM Prompt Generation
-# -------------------------------------
-def generate_complexity_prompt(cq: str) -> str:
-    """Generates the prompt for the LLM."""
-
-    prompt = f"""
-    You are an expert ontology engineer analyzing competency questions (CQs) to identify the underlying ontological primitives required to answer them. Your task is to analyze the given CQ and extract the relevant concepts, properties, relationships, filters, cardinality hints, and aggregation hints.
-
-    Focus on the *minimal* set of primitives essential to fulfill the requirement expressed in the question. Assume an ideal knowledge graph exists.
-
-    **Competency Question:**
-    "{cq}"
-
-    **Instructions:**
-    1.  **Identify Concepts:** List the distinct real-world entity types (classes) involved (e.g., Item, Artist, Event, MultimediaFile). Use singular form, CamelCase.
-    2.  **Identify Properties:** List the attributes or data characteristics of those concepts needed (e.g., name, description, duration, format). Use camelCase.
-    3.  **Identify Relationships:** List the connections *between concepts* required (e.g., isPartOf, relatedTo, usedBy, associatedArtist). Use camelCase. Do not list relationships between a concept and its literal property.
-    4.  **Identify Filters:** List any specific conditions or constraints applied (e.g., 'primary image', 'specific genre').
-    5.  **Determine Cardinality Hint:** Indicate if the question asks for one result ('single'), potentially many results ('multiple'), or just confirmation of existence ('existence_check').
-    6.  **Determine Aggregation Hint:** Indicate if the question implies counting or other aggregations ('count', 'none', etc.).
-    7.  **Provide Rationale:** Briefly explain your reasoning.
-    """
-    
-    return prompt
+    def print_analysis(self):
+        print("Concepts:")
+        for concept in self.concepts:
+            print(f"  - {concept}")
+        print("Properties:")
+        for prop in self.properties:
+            print(f"  - {prop}")
+        print("Relationships:")
+        for rel in self.relationships:
+            print(f"  - {rel}")
+        print("Filters:")
+        for filter_ in self.filters:
+            print(f"  - {filter_}")
+        print(f"Cardinality Hint: {self.cardinality_hint}")
+        print(f"Aggregation Hint: {self.aggregation_hint}")
+        print(f"Rationale: {self.rationale}")
 
     
 def calculate_complexity_score(analysis: CQAnalysis) -> float:
@@ -260,7 +254,7 @@ def count_relevant_dependencies(doc: spacy.tokens.Doc, relevant_deps_set: Set[st
     return dict(dep_counts) # Return as standard dict
 
 
-def analyse_syntactic_complexity(cq: str, nlp: spacy.language.Language) -> Tuple[float, Dict[str, Any]]:
+def analyse_syntactic_complexity(cq: str, nlp: spacy.language.Language=NLP) -> Tuple[float, Dict[str, Any]]:
     """
     Analyzes a CQ using spaCy to extract syntactic features and calculate score.
 
