@@ -85,8 +85,23 @@ class CQAnalysis(BaseModel):
         print(f"Cardinality Hint: {self.cardinality_hint}")
         print(f"Aggregation Hint: {self.aggregation_hint}")
         print(f"Rationale: {self.rationale}")
+        
+    def to_dict(self) -> Dict[str, Any]:
+        """
+        Converts the CQAnalysis object to a dictionary.
+        """
+        return {
+            "concepts": self.concepts,
+            "properties": self.properties,
+            "relationships": self.relationships,
+            "filters": self.filters,
+            "cardinality_hint": self.cardinality_hint,
+            "aggregation_hint": self.aggregation_hint,
+            "rationale": self.rationale
+        }
 
-    
+
+
 def calculate_complexity_score(analysis: CQAnalysis) -> float:
     """
     Calculates a complexity score based on the extracted primitives.
@@ -94,32 +109,52 @@ def calculate_complexity_score(analysis: CQAnalysis) -> float:
     score = 0.0
 
     # Weights (these can be tuned based on empirical analysis or domain knowledge)
-    concept_weight = 1.0
-    property_weight = 0.8
-    relationship_weight = 2.0  # Relationships often imply joins/paths -> higher complexity
-    filter_weight = 1.5  # Filters add query complexity
-    cardinality_multiple_bonus = 1.0
-    cardinality_existence_bonus = 0.5 # Less complex than retrieving data, but more than simple property access
-    aggregation_bonus = 2.5  # Aggregations (count, sum, etc.) are usually more complex
+    WEIGHTS = {
+        'concept': 1.0,
+        'property': 0.8,
+        'relationship': 2.0,  # Relationships often imply joins/paths -> higher complexity
+        'filter': 1.5,  # Filters add query complexity
+        'cardinality_multiple': 1.0,
+        'cardinality_existence': 0.5, # Less complex than retrieving data, but more than simple property access
+        'aggregation': 2.5  # Aggregations (count, sum, etc.) are usually more complex
+    }
+    # Relaxed/flat version of the weights: all features are equally weighted
+    WEIGHTS = {
+        'concept': 1.0,
+        'property': 1.0,
+        'relationship': 1.0,
+        'filter': 1.0,
+        'cardinality_multiple': 1.0,
+        'cardinality_existence': 1.0,
+        'aggregation': 1.0
+    }
 
-    score += len(analysis.concepts) * concept_weight
-    score += len(analysis.properties) * property_weight
-    score += len(analysis.relationships) * relationship_weight
-    score += len(analysis.filters) * filter_weight
+    score += len(analysis.concepts) * WEIGHTS['concept']
+    score += len(analysis.properties) * WEIGHTS['property']
+    score += len(analysis.relationships) * WEIGHTS['relationship']
+    score += len(analysis.filters) * WEIGHTS['filter']
 
     if analysis.cardinality_hint == 'multiple':
-        score += cardinality_multiple_bonus
+        score += WEIGHTS['cardinality_multiple']
     elif analysis.cardinality_hint == 'existence_check':
-        score += cardinality_existence_bonus
+        score += WEIGHTS['cardinality_existence']
         # Optional Tweak: Reduce impact of properties/relationships for simple existence checks?
         # score -= (len(analysis.properties) * property_weight * 0.5)
         # score -= (len(analysis.relationships) * relationship_weight * 0.5)
 
     if analysis.aggregation_hint != 'none':
-        score += aggregation_bonus
+        score += WEIGHTS['aggregation']
     # Ensure score is not negative if using tweaks
     score = max(0.0, score)
-    return round(score, 2)
+
+    # Also return a dictionary of the analysis with the number of elements in each category
+    features = {k: len(v) for k, v in analysis.to_dict().items() if isinstance(v, list)}
+    features['cardinality_hint'] = 1 if analysis.cardinality_hint \
+                                   in ['multiple', 'existence_check'] else 0
+    features['aggregation_hint'] = 1 if analysis.aggregation_hint \
+                                   not in ['none', ''] else 0
+    # features['rationale'] = analysis.rationale
+    return round(score, 2), features
 
 # -------------------------------------------------
 # --- Linguistic Feature Extraction and Scoring ---
@@ -170,7 +205,19 @@ def analyse_linguistic_complexity(cq: str, nlp: spacy.language.Language) -> Tupl
         'q_type_wh': 0.5,   # Base bonus for standard WH questions
         'q_type_bool': 0.2, # Existence checks might be slightly simpler
         'q_type_how_many': 2.0, # Aggregation is often more complex
-        'q_type_other': 0.0
+        'q_type_other': 0.0  # FIXME
+    }
+    # Relaxed/flat version of the weights: all features are equally weighted
+    WEIGHTS = {
+        'noun_phrase': 1.0,
+        'verb': 1.0,
+        'preposition': 1.0, # Proxy for relationships / PPs
+        'conjunction': 1.0, # Combining clauses/criteria often adds complexity
+        'modifier': 1.0,    # Adjectives/Adverbs often signal filters
+        'q_type_wh': 1.0,   # Base bonus for standard WH questions
+        'q_type_bool': 1.0, # Existence checks might be slightly simpler
+        'q_type_how_many': 1.0, # Aggregation is often more complex
+        'q_type_other': 1.0   # e.g. Imperative
     }
 
     if not cq:
@@ -271,6 +318,12 @@ def analyse_syntactic_complexity(cq: str, nlp: spacy.language.Language=NLP) -> T
         'node_count': 0.1,  # Raw length contributes a little
         'tree_depth': 0.8,  # Nested structures (depth) often indicate complexity
         'relevant_deps_total': 0.6 # Number of key syntactic relations matters
+    }
+    # Relaxed/flat version of the weights: all features are equally weighted
+    WEIGHTS = {
+        'node_count': 1.0,
+        'tree_depth': 1.0,
+        'relevant_deps_total': 1.0
     }
     # Define which dependency relations are considered "relevant" for complexity
     # This set can be adjusted based on linguistic intuition or empirical analysis
