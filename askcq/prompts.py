@@ -3,7 +3,9 @@ SYSTEM_ROLE_GEN = "You are an ontology engineer who is tasked to formulate requi
 
 SYSTEM_ROLE_COMP = " You are an expert ontology engineer analyzing competency questions (CQs) to identify the underlying ontological primitives required to answer them. Your task is to analyze the given CQ and extract the relevant concepts, properties, relationships, filters, cardinality hints, and aggregation hints. You will also provide a brief explanation of your reasoning for each extracted element."
 
-SYSTEM_ROLE_RELEVANCE = "You are an expert ontology engineer analyzing competency questions (CQs) to identify their relevance to user stories. Your task is to evaluate the relevance of the given CQ with respect to the provided user story. You will also receive a description of the persona(s) involved in the user story for context. You will measure relevance as a score from 1 to 4 based on the definitions provided and include a brief explanation of your reasoning."
+SYSTEM_ROLE_RELEVANCE_A = "You are an expert ontology engineer analyzing competency questions (CQs) to identify their relevance to user stories. Your task is to evaluate the relevance of the given CQ with respect to the provided user story. You will measure relevance as a score from 1 to 4 based on the definitions provided and include a brief explanation of your reasoning."
+
+SYSTEM_ROLE_RELEVANCE_P = "You are an expert ontology engineer analyzing competency questions (CQs) to identify their relevance to user stories. Your task is to evaluate the relevance of the given CQ with respect to the provided user story. You will also receive a description of the persona(s) involved in the user story for context. You will measure relevance as a score from 1 to 4 based on the definitions provided and include a brief explanation of your reasoning."
 
 PROMPT_COMP = """
 Focus on the *minimal* set of primitives essential to fulfill the requirement expressed in the question.
@@ -21,12 +23,55 @@ Focus on the *minimal* set of primitives essential to fulfill the requirement ex
 7.  **Provide Rationale:** Briefly explain your reasoning.
 """
 
-PROMPT_RELEVANCE = """
+PROMPT_RELEVANCE_A = """
 Rate the relevance of the given competency question with respect to the given user story using a Likert scale from 1 to 4, where:
-1 = The competency question is not present in the user story and cannot be inferred at all;
-2 = The competency question cannot be inferred from the user story, even using common sense or domain knowledge;
-3 = The competency question can be inferred from the user story using common sense and domain knowledge;
-4 = The competency question is clearly expressed in the user story.
+1 = The competency question introduces an extra requirement that is not expressed in the user story and cannot be inferred at all (non-necessary requirement);
+2 = The competency question cannot be inferred from the user story (even using common sense or domain knowledge) but is still an enabler for the requirements expressed in the user story;
+3 = The competency question addresses a requirement that can be inferred from the user story using common sense and domain knowledge;
+4 = The competency question addresses a requirement that is explicitly expressed in the user story.
+
+**Competency Question:**
+"{cq}"
+
+**User Story:**
+"{user_story}"
+
+
+**Instructions:**
+1.  **Rate Relevance:** Assign a score from 1 to 4 based on the definitions above.
+2.  **Provide Rationale:** Briefly explain your reasoning.
+"""
+
+PROMPT_RELEVANCE_B = """
+As an ontology engineer, it is important that only competency questions entailing requirements that are explicitly expressed in the user story or functionally necessary to fulfill the user story are considered as relevant competency questions. Therefore, rate the relevance of the given competency question with respect to the given user story using a Likert scale from 1 to 4, where:
+1 = The competency question introduces an extra requirement that is not expressed in the user story and cannot be inferred at all (non-necessary requirement);
+2 = The competency question cannot be inferred from the user story (even using domain knowledge) but the competency question is somewhat relevant to the persona for this user story;
+3 = The competency question addresses a requirement that can be inferred from the user story using domain knowledge and it still functionally necessary to fulfill the user story;
+4 = The competency question addresses a requirement that is explicitly expressed in the user story in its entirety.
+
+**Competency Question:**
+"{cq}"
+
+**User Story:**
+"{user_story}"
+
+
+**Instructions:**
+1.  **Rate Relevance:** Assign a score from 1 to 4 based on the definitions above.
+2.  **Provide Rationale:** Briefly explain your reasoning.
+"""
+
+
+PROMPT_RELEVANCE_C = """
+Rate the relevance of the given competency question with respect to the given user story using a Likert scale from 1 to 4, where:
+1 = The competency question introduces an extra requirement that is not expressed in the user story and cannot be inferred at all (non-necessary requirement);
+2 = The competency question cannot be inferred from the user story (even using common sense or domain knowledge) but the competency question is somewhat relevant to the persona for this user story;
+3 = The competency question addresses a requirement that can be inferred from the user story using common sense and domain knowledge;
+4 = The competency question addresses a requirement that is explicitly expressed in the user story.
+
+**Competency Question:**
+"{cq}"
+
 
 **Persona(s) Description:**
 "{persona_description}"
@@ -35,9 +80,6 @@ Rate the relevance of the given competency question with respect to the given us
 **User Story:**
 "{user_story}"
 
-
-**Competency Question:**
-"{cq}"
 
 **Instructions:**
 1.  **Rate Relevance:** Assign a score from 1 to 4 based on the definitions above.
