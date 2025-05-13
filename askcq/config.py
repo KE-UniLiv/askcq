@@ -14,3 +14,11 @@ SET_MAPPING = {
     4: "GPT4.1",
     5: "Gemini 2.5 Pro",
 }
+
+SET_MAPPING_LIGHT = {
+    1: "HA-1",
+    2: "HA-2",
+    3: "Pattern",
+    4: "GPT",
+    5: "Gemini"
+}
