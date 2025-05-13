@@ -12,7 +12,7 @@ This repository contains the **AskCQ dataset**, Python code and a suite of Jupyt
 ## Repository Structure
 
 - `askcq/`
-  - `agreement.py`, `complexity.py`, `embedding.py`, , `utils.py`: core Python modules for data processing and analysis.
+  - `agreement.py`, `complexity.py`, `embedding.py`, `utils.py`: core Python modules for data processing and analysis.
   - `prompts.py` includes all the prompts and system roles used in the experiments.
   - `config.py` provides the configuration used to prompt all the LLMs.
   - `cq_generation.ipynb`: LLM-based CQ generation and extraction from the user story.
@@ -57,3 +57,7 @@ Each notebook is self-contained and can be run independently. For full reproduci
 - **Step 3:** Outputs (plots, tables, CSVs) will be saved in the appropriate folders (`plots/`, `data/`).
 
 **Note:** Some notebooks require API keys for LLMs (OpenAI, Gemini). Store your keys securely in `askcq/api_config.yml` (without pushing it!) and follow the prompts in the code to set them (see usage of `get_key` in `utils.py`).
+
+## License
+
+The AskCQ dataset located in the data/ directory is licensed under the Creative Commons Attribution 4.0 International (CC BY 4.0) license. All other code in this repository is licensed under the MIT License.
