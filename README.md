@@ -1,4 +1,9 @@
 # AskCQ
+[![Data License: CC BY 4.0](https://img.shields.io/badge/Data%20License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
+[![Code License: MIT](https://img.shields.io/badge/Code%20License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/release/python-3110/)
+
+
 ## A Comparative Study of Competency Question Elicitation Methods from Ontology Requirements
 
 This repository accompanies research investigating different approaches for formulating Competency Questions (CQs) in ontology engineering. It provides the **AskCQ dataset**, Python code, and a suite of Jupyter notebooks for a comprehensive computational analysis of CQs generated through manual, template-based, and Large Language Model (LLM)-based methods. Competency Questions (CQs) are crucial in the ontology engineering lifecycle for eliciting requirements, scoping the ontology, and guiding its design, validation, and reuse. However, formulating effective CQs can be challenging. This work addresses this by investigating three main CQ formulation approaches: manual formulation by experienced ontology engineers, semi-automated formulation via instantiation of CQ patterns (from Ren et al., 2014), and automated formulation using LLMs (specifically GPT4.1 and Gemini 2.5 Pro). A core contribution is **AskCQ**, the first multi-annotator dataset of CQs generated from identical source material (a user story in cultural heritage) using these distinct elicitation approaches. The project involves a systematic comparative analysis of the generated CQs, using qualitative multi-annotator evaluation and quantitative assessment of features like suitability, ambiguity, relevance, readability, and complexity, alongside an analysis of semantic diversity and overlap using sentence embeddings. Key findings highlight that human-formulated CQs generally score highest in suitability and readability with lower complexity, while LLM-based approaches, though capable of generating relevant CQs, tend to produce more complex and less readable questions without further refinement.
@@ -14,12 +19,12 @@ Key properties of the AskCQ dataset are summarized below:
 | **Total CQs** | 204                                                                                                                                       |
 | **Source Material** | A single user story from a cultural heritage project (focus: museum collection data management for music archivist & collection curator). |
 | **Generation Sets** | 5 distinct sets based on elicitation method:                                                                                              |
-|                       | - **HA-1 (44 CQs):** Manual (Human Annotator 1: 20+ yrs OE experience)                                                                  |
-|                       | - **HA-2 (54 CQs):** Manual (Human Annotator 2: 5 yrs OE experience in domain)                                                            |
-|                       | - **Pattern (38 CQs):** Template-based (instantiated from Ren et al., 2014 by engineer with 5+ yrs requirements eng. experience)        |
-|                       | - **GPT (26 CQs):** LLM-generated (GPT 4.1)                                                                                           |
-|                       | - **Gemini (42 CQs):** LLM-generated (Gemini 2.5 Pro)                                                                                       |
-| **Anonymization** | CQs anonymized by generation method for evaluation.                                                                                       |
+|                       | - **HA-1 (44 CQs):** Manual (Human Annotator 1)                                                                  |
+|                       | - **HA-2 (54 CQs):** Manual (Human Annotator 2)                                                            |
+|                       | - **Pattern (38 CQs):** Template-based (manually instantiated from Ren et al., 2014)        |
+|                       | - **GPT (26 CQs):** LLM-generated (GPT 4.1, `gpt-4.1`)                                                                                           |
+|                       | - **Gemini (42 CQs):** LLM-generated (Gemini 2.5 Pro, `gemini-2.5-pro-preview-03-25`)                                                                                       |
+| **Anonymisation** | CQs anonymised by generation method for evaluation.                                                                                       |
 | **License** | CC BY 4.0                                                                                                                                 |
 | **File Location** | `data/askcq_dataset.csv` (The user story is also realeased in `data/bme_us1.md`).                                                          |
 
@@ -86,7 +91,7 @@ The notebooks and modules facilitate the extraction and analysis of several CQ f
     openai:
       key: YOUR_OPENAI_API_KEY
     ```
-    *LLM Configuration Note:* The paper specifies that LLMs were prompted with temperature=0, frequency_penalty=0, presence_penalty=0, and seed=46 to maximize reproducibility. These settings are generally reflected in `config.py`.
+    *LLM Configuration Note:* All LLMs were prompted with temperature=0, frequency_penalty=0, presence_penalty=0, and seed=46 to maximise reproducibility. These settings are generally reflected in `config.py`.
 
 ### 2. Running the Notebooks
 
@@ -96,7 +101,7 @@ The notebooks and modules facilitate the extraction and analysis of several CQ f
 -   **Step 3:** Run all cells sequentially.
 -   **Step 4:** Outputs such as plots, tables, and derived CSV data files will be saved in the appropriate folders (e.g., `plots/`, `data/`).
 
-**Important Note on API Usage:** Some notebooks will make calls to OpenAI and Google Cloud APIs. Ensure your `api_config.yml` is correctly set up. The `utils.py` module likely contains functions like `get_key` to securely access these keys. Be mindful of potential costs associated with API calls.
+**Important Note on API Usage:** Some notebooks will make calls to OpenAI and Google Cloud APIs. Ensure your `api_config.yml` is correctly set up. The `utils.py` module likely contains functions like `get_key` to securely access these keys.
 
 ## How to Cite
 
