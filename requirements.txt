@@ -1,0 +1,12 @@
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+tqdm
+spacy
+textstat
+readability
+openai
+google-generativeai
+pydantic
